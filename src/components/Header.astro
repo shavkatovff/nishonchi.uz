@@ -11,7 +11,7 @@ const isUz = lang === "uz";
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 shrink-0">
-        <img src="/images/logo.png" alt="Nishonchi" class="h-9 w-9 lg:h-10 lg:w-10" />
+        <img src="/images/logo.png" alt="Nishonchi" class="h-9 w-9 lg:h-10 lg:w-10 rounded-xl" />
         <span class="text-lg lg:text-xl font-bold text-dark">Nishonchi</span>
       </a>
 
@@ -36,7 +36,7 @@ const isUz = lang === "uz";
         </button>
 
         <!-- CTA Desktop -->
-        <a href="#contact" class="hidden md:inline-flex items-center px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-all shadow-sm hover:shadow-md" data-i18n="nav.cta">
+        <a href="#contact" class="hidden md:inline-flex items-center px-5 py-2.5 bg-primary/10 text-primary text-sm font-semibold rounded-full hover:bg-primary/20 transition-all" data-i18n="nav.cta">
           {isUz ? "Bepul audit olish" : "Бесплатный аудит"}
         </a>
 
@@ -61,7 +61,7 @@ const isUz = lang === "uz";
         <a href="#contact" class="text-sm font-medium text-text-light hover:text-primary py-2" data-i18n="nav.contact">
           {isUz ? "Bog'lanish" : "Контакт"}
         </a>
-        <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-all mt-2" data-i18n="nav.cta">
+        <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 bg-primary/10 text-primary text-sm font-semibold rounded-full hover:bg-primary/20 transition-all mt-2" data-i18n="nav.cta">
           {isUz ? "Bepul audit olish" : "Бесплатный аудит"}
         </a>
       </nav>
