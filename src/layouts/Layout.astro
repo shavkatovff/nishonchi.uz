@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  lang?: string;
+}
+
+const { title = "Nishonchi | Targetolog | Telegram Ads", lang = "uz" } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <meta name="description" content="Nishonchi — Telegram Ads targetolog. TON va EURO cabinetlar orqali samarali reklama. Bepul audit." />
+    <meta name="keywords" content="telegram reklama, telegram ads, targetolog, nishonchi, TON cabinet, EURO cabinet" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Telegram reklamangizni pulga aylantiramiz. Bepul audit olish uchun ariza qoldiring." />
+    <meta property="og:image" content="/images/logo.png" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white antialiased">
+    <slot />
+  </body>
+</html>

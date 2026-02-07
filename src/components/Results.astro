@@ -1,0 +1,124 @@
+---
+interface Props {
+  lang?: string;
+}
+const { lang = "uz" } = Astro.props;
+const isUz = lang === "uz";
+
+const partners = [
+  { name: "Zarmed University", color: "bg-blue-50" },
+  { name: "Refar Ko'chmas Mulk", color: "bg-slate-50" },
+  { name: "Hisobchi AI", color: "bg-green-50" },
+  { name: "Al-Sahiy Supermarket", color: "bg-emerald-50" },
+  { name: "Web Grade IT", color: "bg-gray-50" },
+  { name: "Argeville Uzbekistan", color: "bg-blue-50" },
+];
+---
+
+<section id="results" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-xs font-semibold rounded-full uppercase tracking-wide mb-4">
+        {isUz ? "Natijalar" : "Результаты"}
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-dark">
+        {isUz ? "Haqiqiy reklama natijalari" : "Реальные результаты рекламы"}
+      </h2>
+      <p class="mt-4 text-text-light text-lg">
+        {isUz
+          ? "EURO cabinet orqali obunachi yig'ish kampaniyalari statistikasi"
+          : "Статистика кампаний по привлечению подписчиков через EURO кабинет"}
+      </p>
+    </div>
+
+    <!-- Case studies -->
+    <div class="grid md:grid-cols-2 gap-8 mb-20">
+      <!-- Case 1 -->
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-mid/50">
+        <div class="flex items-center justify-between mb-6">
+          <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+            {isUz ? "1-misol" : "Пример 1"}
+          </span>
+          <span class="text-xs text-text-light">EURO Cabinet</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 mb-6">
+          <div class="bg-gray-light rounded-2xl p-5 text-center">
+            <p class="text-3xl font-extrabold text-accent">327€</p>
+            <p class="text-sm text-text-light mt-1">{isUz ? "sarflangan" : "потрачено"}</p>
+          </div>
+          <div class="bg-gray-light rounded-2xl p-5 text-center">
+            <p class="text-3xl font-extrabold text-primary">12,582</p>
+            <p class="text-sm text-text-light mt-1">{isUz ? "obunachi" : "подписчиков"}</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4">
+          <div class="text-center">
+            <p class="text-lg font-bold text-dark">€0.03</p>
+            <p class="text-xs text-text-light">CPA</p>
+          </div>
+          <div class="text-center">
+            <p class="text-lg font-bold text-dark">1.77%</p>
+            <p class="text-xs text-text-light">CTR</p>
+          </div>
+          <div class="text-center">
+            <p class="text-lg font-bold text-dark">€0.10</p>
+            <p class="text-xs text-text-light">CPM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-mid/50">
+        <div class="flex items-center justify-between mb-6">
+          <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+            {isUz ? "2-misol" : "Пример 2"}
+          </span>
+          <span class="text-xs text-text-light">EURO Cabinet</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 mb-6">
+          <div class="bg-gray-light rounded-2xl p-5 text-center">
+            <p class="text-3xl font-extrabold text-accent">327€</p>
+            <p class="text-sm text-text-light mt-1">{isUz ? "sarflangan" : "потрачено"}</p>
+          </div>
+          <div class="bg-gray-light rounded-2xl p-5 text-center">
+            <p class="text-3xl font-extrabold text-primary">9,561</p>
+            <p class="text-sm text-text-light mt-1">{isUz ? "obunachi" : "подписчиков"}</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4">
+          <div class="text-center">
+            <p class="text-lg font-bold text-dark">€0.04</p>
+            <p class="text-xs text-text-light">CPA</p>
+          </div>
+          <div class="text-center">
+            <p class="text-lg font-bold text-dark">1.56%</p>
+            <p class="text-xs text-text-light">CTR</p>
+          </div>
+          <div class="text-center">
+            <p class="text-lg font-bold text-dark">€0.12</p>
+            <p class="text-xs text-text-light">CPM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partners -->
+    <div class="text-center">
+      <h3 class="text-2xl font-extrabold text-dark mb-10">
+        {isUz ? "Hamkor mijozlarimiz" : "Наши клиенты-партнёры"}
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {partners.map((p) => (
+          <div class={`${p.color} rounded-2xl p-6 flex items-center justify-center hover:shadow-md transition-shadow`}>
+            <span class="text-sm font-semibold text-dark text-center">{p.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

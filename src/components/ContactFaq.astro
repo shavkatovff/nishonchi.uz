@@ -1,0 +1,199 @@
+---
+interface Props {
+  lang?: string;
+}
+const { lang = "uz" } = Astro.props;
+const isUz = lang === "uz";
+
+const faqs = isUz
+  ? [
+      {
+        q: "Telegram reklama qancha turadi?",
+        a: "Narx reklama turi va maqsadiga qarab farq qiladi. Bepul audit o'tkazib, aniq narx va strategiyani birgalikda belgilaymiz.",
+      },
+      {
+        q: "TON va EURO cabinet farqi nima?",
+        a: "TON cabinet — kripto valyuta orqali ishlaydi, 3 xil maqsadda reklama yoqiladi. EURO cabinet — kengaytirilgan targeting (geolokatsiya, pixel, qurilma, qiziqishlar) imkoniyatlariga ega.",
+      },
+      {
+        q: "Natija qachon ko'rinadi?",
+        a: "Reklama yoqilgandan so'ng 24-72 soat ichida birinchi natijalar ko'rinadi. To'liq kampaniya natijalari 1-2 hafta ichida baholanadi.",
+      },
+      {
+        q: "Minimal byudjet qancha?",
+        a: "TON cabinetda minimal 20 TON (~40$), EURO cabinetda esa bepul audit asosida kelishiladi.",
+      },
+      {
+        q: "Qaysi sohalarga reklama yoqasiz?",
+        a: "Ta'lim, ko'chmas mulk, IT, savdo, xizmat ko'rsatish va boshqa barcha sohalar uchun Telegram reklama yoqamiz.",
+      },
+    ]
+  : [
+      {
+        q: "Сколько стоит реклама в Telegram?",
+        a: "Стоимость зависит от типа и цели рекламы. Проведём бесплатный аудит и вместе определим точную цену и стратегию.",
+      },
+      {
+        q: "В чём разница между TON и EURO кабинетом?",
+        a: "TON кабинет работает через криптовалюту, 3 типа целей. EURO кабинет имеет расширенный таргетинг: геолокация, пиксель, устройства, интересы.",
+      },
+      {
+        q: "Когда будут видны результаты?",
+        a: "Первые результаты видны через 24-72 часа после запуска. Полные результаты кампании оцениваются за 1-2 недели.",
+      },
+      {
+        q: "Какой минимальный бюджет?",
+        a: "В TON кабинете минимум 20 TON (~40$), в EURO кабинете — определяется после бесплатного аудита.",
+      },
+      {
+        q: "Для каких сфер вы запускаете рекламу?",
+        a: "Образование, недвижимость, IT, торговля, услуги и любые другие сферы бизнеса в Telegram.",
+      },
+    ];
+---
+
+<section id="contact" class="py-20 lg:py-28 bg-gray-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16">
+      <!-- Form -->
+      <div>
+        <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary text-xs font-semibold rounded-full uppercase tracking-wide mb-4">
+          {isUz ? "Bog'lanish" : "Контакт"}
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-dark">
+          {isUz ? "Bepul audit uchun ariza qoldiring" : "Оставьте заявку на бесплатный аудит"}
+        </h2>
+        <p class="mt-4 text-text-light text-lg">
+          {isUz
+            ? "Ma'lumotlaringizni qoldiring, biz siz bilan tez orada bog'lanamiz"
+            : "Оставьте данные, мы свяжемся с вами в ближайшее время"}
+        </p>
+
+        <form id="contact-form" class="mt-8 space-y-5">
+          <div>
+            <label for="name" class="block text-sm font-medium text-dark mb-2">
+              {isUz ? "Ismingiz" : "Ваше имя"} *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-5 py-3.5 bg-white border border-gray-mid rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+              placeholder={isUz ? "Ismingizni kiriting" : "Введите ваше имя"}
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-medium text-dark mb-2">
+              {isUz ? "Telefon raqam" : "Номер телефона"} *
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="w-full px-5 py-3.5 bg-white border border-gray-mid rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+              placeholder="+998 90 123 45 67"
+            />
+          </div>
+
+          <div>
+            <label for="business" class="block text-sm font-medium text-dark mb-2">
+              {isUz ? "Biznesingiz haqida qisqacha" : "Кратко о вашем бизнесе"}
+            </label>
+            <textarea
+              id="business"
+              name="business"
+              rows="3"
+              class="w-full px-5 py-3.5 bg-white border border-gray-mid rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
+              placeholder={isUz ? "Masalan: ta'lim markazi, 3000+ o'quvchi" : "Например: учебный центр, 3000+ учеников"}
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl text-base"
+          >
+            {isUz ? "Yuborish" : "Отправить"}
+          </button>
+
+          <div id="form-success" class="hidden p-4 bg-green-50 text-green-700 rounded-xl text-sm font-medium text-center">
+            {isUz ? "Arizangiz qabul qilindi! Tez orada bog'lanamiz." : "Заявка принята! Скоро свяжемся с вами."}
+          </div>
+        </form>
+      </div>
+
+      <!-- FAQ -->
+      <div>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-dark mb-8">
+          {isUz ? "Ko'p so'raladigan savollar" : "Часто задаваемые вопросы"}
+        </h3>
+
+        <div class="space-y-4">
+          {faqs.map((faq, i) => (
+            <div class="faq-item bg-white rounded-2xl border border-gray-mid/50 overflow-hidden">
+              <button
+                class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left"
+                data-index={i}
+              >
+                <span class="text-sm font-semibold text-dark pr-4">{faq.q}</span>
+                <svg class="faq-icon w-5 h-5 text-text-light shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5">
+                <p class="text-sm text-text-light leading-relaxed">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // FAQ Accordion
+  document.querySelectorAll(".faq-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      const answer = item?.querySelector(".faq-answer");
+      const icon = item?.querySelector(".faq-icon");
+      const isOpen = !answer?.classList.contains("hidden");
+
+      // Close all
+      document.querySelectorAll(".faq-answer").forEach((a) => a.classList.add("hidden"));
+      document.querySelectorAll(".faq-icon").forEach((i) => i.classList.remove("rotate-180"));
+
+      // Toggle current
+      if (!isOpen) {
+        answer?.classList.remove("hidden");
+        icon?.classList.add("rotate-180");
+      }
+    });
+  });
+
+  // Form submit
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const successMsg = document.getElementById("form-success");
+    const submitBtn = form.querySelector("button[type=submit]") as HTMLButtonElement;
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "...";
+    }
+
+    // Simulate submission (replace with real API)
+    setTimeout(() => {
+      successMsg?.classList.remove("hidden");
+      form.reset();
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = document.documentElement.lang === "uz" ? "Yuborish" : "Отправить";
+      }
+    }, 1000);
+  });
+</script>

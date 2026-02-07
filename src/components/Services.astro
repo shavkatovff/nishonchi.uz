@@ -1,0 +1,212 @@
+---
+interface Props {
+  lang?: string;
+}
+const { lang = "uz" } = Astro.props;
+const isUz = lang === "uz";
+
+const tonFeatures = isUz
+  ? [
+      "Video, rasm, matn, matn+logo+emoji",
+      "1000+ obunachisi bor TG kanal kerak",
+      "Global qidiruv (Search)",
+      "Trafikni kanal, bot, admin profilga yo'naltirish",
+    ]
+  : [
+      "Видео, фото, текст, текст+лого+эмодзи",
+      "Нужен TG канал с 1000+ подписчиками",
+      "Глобальный поиск (Search)",
+      "Трафик на канал, бот, профиль админа",
+    ];
+
+const euroFeatures = isUz
+  ? [
+      "Video, rasm, matn, matn+logo+emoji",
+      "1000+ obunachisi bor TG kanal kerak",
+      "Global qidiruv (Search)",
+      "Users — foydalanuvchilarga reklama",
+      "Boshqa linklarga trafik yo'naltirish",
+      "Pixel orqali saytni kuzatish",
+      "Qiziqishlar bo'yicha targeting",
+      "Geolokatsiya (Toshkent, Samarqand...)",
+      "Kontakt bazaga reklama",
+      "Qurilma bo'yicha target (Android / iOS)",
+    ]
+  : [
+      "Видео, фото, текст, текст+лого+эмодзи",
+      "Нужен TG канал с 1000+ подписчиками",
+      "Глобальный поиск (Search)",
+      "Users — реклама пользователям",
+      "Трафик на внешние ссылки",
+      "Отслеживание через Pixel",
+      "Таргетинг по интересам",
+      "Геолокация (Ташкент, Самарканд...)",
+      "Реклама по базе контактов",
+      "Таргетинг по устройству (Android / iOS)",
+    ];
+
+const steps = isUz
+  ? [
+      { num: "01", title: "Bepul audit", desc: "Biznesingizni tahlil qilamiz va imkoniyatlarni aniqlaymiz", icon: "search" },
+      { num: "02", title: "Strategiya", desc: "Reklama rejasi va byudjetni tuzamiz", icon: "plan" },
+      { num: "03", title: "Reklama", desc: "Yoqamiz va har kuni optimizatsiya qilamiz", icon: "rocket" },
+      { num: "04", title: "Natija", desc: "Batafsil hisobot va tahlil beramiz", icon: "chart" },
+    ]
+  : [
+      { num: "01", title: "Бесплатный аудит", desc: "Анализируем бизнес и определяем возможности", icon: "search" },
+      { num: "02", title: "Стратегия", desc: "Составляем план рекламы и бюджет", icon: "plan" },
+      { num: "03", title: "Реклама", desc: "Запускаем и ежедневно оптимизируем", icon: "rocket" },
+      { num: "04", title: "Результат", desc: "Подробный отчёт и аналитика", icon: "chart" },
+    ];
+---
+
+<section id="services" class="py-20 lg:py-28 bg-gray-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary text-xs font-semibold rounded-full uppercase tracking-wide mb-4">
+        {isUz ? "Xizmatlar" : "Услуги"}
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-dark">
+        {isUz ? "Telegram reklama cabinetlari" : "Рекламные кабинеты Telegram"}
+      </h2>
+      <p class="mt-4 text-text-light text-lg">
+        {isUz
+          ? "Telegramda reklama uchun 2 xil cabinet mavjud. Har biri o'ziga xos imkoniyatlarga ega."
+          : "Для рекламы в Telegram существуют 2 вида кабинетов. Каждый имеет уникальные возможности."}
+      </p>
+    </div>
+
+    <!-- Cabinet cards -->
+    <div class="grid md:grid-cols-2 gap-8 mb-20">
+      <!-- TON Cabinet -->
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-mid/50 hover:shadow-lg transition-shadow">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-dark">TON Cabinet</h3>
+            <p class="text-sm text-text-light">{isUz ? "Kripto valyuta orqali" : "Через криптовалюту"}</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          {["Search", "Bots", "Channels"].map((t) => (
+            <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">{t}</span>
+          ))}
+        </div>
+
+        <ul class="space-y-3 mb-6">
+          {tonFeatures.map((f) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-text">{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="pt-6 border-t border-gray-mid/50">
+          <div class="flex items-baseline gap-1">
+            <span class="text-2xl font-extrabold text-dark">0.2 TON</span>
+            <span class="text-sm text-text-light">{isUz ? "dan / CPM" : "от / CPM"}</span>
+          </div>
+          <p class="text-xs text-accent mt-2 flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {isUz ? "Moderatsiya: 1 kundan 1 oygacha" : "Модерация: от 1 дня до 1 месяца"}
+          </p>
+        </div>
+      </div>
+
+      <!-- EURO Cabinet -->
+      <div class="relative bg-white rounded-3xl p-8 shadow-sm border-2 border-primary hover:shadow-lg transition-shadow">
+        <div class="absolute -top-3 right-6">
+          <span class="bg-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">
+            {isUz ? "Tavsiya etiladi" : "Рекомендуем"}
+          </span>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center">
+            <span class="text-accent font-extrabold text-xl">€</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-dark">EURO Cabinet</h3>
+            <p class="text-sm text-text-light">{isUz ? "Kengaytirilgan targeting" : "Расширенный таргетинг"}</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          {["Search", "Bots", "Users", "Channels"].map((t) => (
+            <span class={`px-3 py-1 text-xs font-semibold rounded-full ${t === "Users" ? "bg-accent/10 text-accent" : "bg-primary/10 text-primary"}`}>{t}</span>
+          ))}
+        </div>
+
+        <ul class="space-y-3 mb-6">
+          {euroFeatures.map((f) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-text">{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="pt-6 border-t border-gray-mid/50">
+          <div class="flex items-baseline gap-1">
+            <span class="text-2xl font-extrabold text-dark">0.1 EURO</span>
+            <span class="text-sm text-text-light">{isUz ? "dan / CPM" : "от / CPM"}</span>
+          </div>
+          <p class="text-xs text-green-600 mt-2 flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            {isUz ? "Reklama 3 kungacha active bo'ladi" : "Реклама активна до 3 дней"}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process steps -->
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-dark text-center mb-12">
+        {isUz ? "Qanday ishlaymiz?" : "Как мы работаем?"}
+      </h3>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {steps.map((step) => (
+          <div class="relative bg-white rounded-2xl p-6 shadow-sm border border-gray-mid/50 hover:shadow-md transition-shadow text-center">
+            <span class="text-4xl font-extrabold text-primary/15">{step.num}</span>
+            <h4 class="text-base font-bold text-dark mt-2">{step.title}</h4>
+            <p class="text-sm text-text-light mt-2">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Pricing CTA -->
+      <div class="mt-16 text-center bg-gradient-to-r from-primary to-primary-dark rounded-3xl p-10 text-white">
+        <h3 class="text-2xl font-bold">
+          {isUz ? "Narxni bilmoqchimisiz?" : "Хотите узнать стоимость?"}
+        </h3>
+        <p class="mt-3 text-white/80 max-w-lg mx-auto">
+          {isUz
+            ? "Bepul audit o'tkazing — biznesingizni tahlil qilib, eng samarali strategiya va narxni birgalikda belgilaymiz."
+            : "Пройдите бесплатный аудит — проанализируем бизнес и вместе определим оптимальную стратегию и стоимость."}
+        </p>
+        <a href="#contact" class="inline-flex items-center mt-6 px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-gray-100 transition-all shadow-lg text-base">
+          {isUz ? "Bepul audit olish" : "Бесплатный аудит"}
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
